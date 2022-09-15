@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
                       icon: Icon(
                         CupertinoIcons.calendar,
                       ),
-                      title: Text('Msh 3arf lsa'),
+                      title: Text('News'),
                       activeColor: primaryColor,
                       inactiveColor: Colors.black,
                     ),

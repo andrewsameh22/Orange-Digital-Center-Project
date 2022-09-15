@@ -68,8 +68,8 @@ class NavHome extends StatelessWidget {
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 5.0,
-                    mainAxisSpacing: 5.0,
+                    crossAxisSpacing: 4.0,
+                    mainAxisSpacing: 4.0,
                   ),
                   itemCount: homeCards.length,
                   itemBuilder: (context, index) {
@@ -84,20 +84,21 @@ class NavHome extends StatelessWidget {
                                     homeCards[index].DestScreen,
                               ));
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
-                                spreadRadius: 3,
-                                blurRadius: 5,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
-                              ),
-                            ],
-                          ),
+                        child: Material(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.white,
+                          elevation: 5.0,
+                          // decoration: BoxDecoration(
+                          //   boxShadow: [
+                          //     BoxShadow(
+                          //       color: Colors.grey.withOpacity(0.3),
+                          //       spreadRadius: 3,
+                          //       blurRadius: 5,
+                          //       offset:
+                          //           Offset(0, 3), // changes position of shadow
+                          //     ),
+                          //   ],
+                          // ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [

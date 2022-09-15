@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../presentation/styles/colours.dart';
 
 class CustomAppbar extends StatelessWidget {
-  String title;
-  CustomAppbar({
-    required this.title,
-  });
+  final String title;
+
+  const CustomAppbar({Key? key, this.title = ''}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return AppBar(

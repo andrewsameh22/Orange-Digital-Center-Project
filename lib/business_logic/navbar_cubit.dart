@@ -5,6 +5,7 @@ import 'package:meta/meta.dart';
 
 import '../presentation/screens/navbar_screens/nav_home.dart';
 import '../presentation/screens/navbar_screens/nav_settings.dart';
+import '../presentation/screens/news_screen.dart';
 
 part 'navbar_state.dart';
 
@@ -20,7 +21,7 @@ class NavbarCubit extends Cubit<NavbarState> {
   // ];
   List<Widget> screens = [
     NavHome(),
-    NavHome(),
+    NewsScreen(),
     NavSettings(),
   ];
 
