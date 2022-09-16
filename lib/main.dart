@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:odc_flutter/business_logic/news_cubit.dart';
 import 'package:odc_flutter/presentation/screens/home/home_screen.dart';
 import 'package:odc_flutter/presentation/screens/navbar_screens/nav_settings.dart';
 import 'package:odc_flutter/presentation/styles/colours.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => NotesCubit()),
+          BlocProvider(create: (context) => NewsCubit()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

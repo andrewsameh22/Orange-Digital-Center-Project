@@ -120,11 +120,66 @@ class NavSettings extends StatelessWidget {
             },
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => settingsCards[index].DestScreen,
-                ));
+            settingsCards[index].title != 'Logout'
+                ? Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => settingsCards[index].DestScreen,
+                    ))
+                : showDialog(
+                    context: context,
+                    builder: (context) {
+                      var height = MediaQuery.of(context).size.height;
+                      var width = MediaQuery.of(context).size.width;
+                      return Container(
+                        // width:
+                        //     MediaQuery.of(context).size.width * 0.45,
+                        child: AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          title: Center(
+                            child: Text('Are You sure you want to log out?'),
+                          ),
+                          actions: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                defButton(
+                                  context: context,
+                                  color: Colors.black,
+                                  text: 'Cancel',
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.03,
+                                ),
+                                defButton(
+                                  color: primaryColor,
+                                  text: 'Logout',
+                                  onTap: () {
+                                    //pref.clear
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => LoginScreen(),
+                                        ));
+                                  },
+                                  context: context,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.02,
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
           },
         ),
       ),

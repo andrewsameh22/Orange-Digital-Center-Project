@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class NewsScreenItem extends StatelessWidget {
-  const NewsScreenItem({Key? key}) : super(key: key);
+  const NewsScreenItem(
+      {Key? key,
+      required this.title,
+      required this.body,
+      required this.imagePath})
+      : super(key: key);
+  final String title;
+  final String body;
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +25,7 @@ class NewsScreenItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15.0),
                 child: Image.network(
-                  "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
+                  imagePath,
                   fit: BoxFit.contain,
 
                   // height: size.height / 5,
@@ -34,7 +42,7 @@ class NewsScreenItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'News Title',
+                    title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(),
@@ -43,7 +51,7 @@ class NewsScreenItem extends StatelessWidget {
                     height: MediaQuery.of(context).size.height / 50,
                   ),
                   Text(
-                    'News Title',
+                    body,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(),
