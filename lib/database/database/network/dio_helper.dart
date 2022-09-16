@@ -15,11 +15,13 @@ class DioHelper
         //Here the URL of API.
         baseUrl: baseUrl,
 
-     //   receiveDataWhenStatusError: true,
+       // receiveDataWhenStatusError: true,
         //Here we Put The Headers Needed in The API.
         headers:
         {
-          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': 229,
+          'Host': 'cloudflare',
           //'lang':'en'
         },
       ),
@@ -68,6 +70,9 @@ class DioHelper
     {
       dio.options.headers = {
         'Authorization': 'Bearer ${token ?? ''}',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': 229,
+        'Host': 'cloudflare',
       };
       final Response response = await dio.post(
         url,

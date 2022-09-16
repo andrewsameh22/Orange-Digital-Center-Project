@@ -47,6 +47,7 @@ dependencies:
   path_provider: ^2.0.11
   conditional_builder_null_safety: ^0.0.6
   top_snackbar_flutter: ^2.1.1
+  fluttertoast: ^8.0.9
 
 dev_dependencies:
   flutter_test:

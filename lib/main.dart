@@ -6,6 +6,7 @@ import 'package:odc_flutter/presentation/screens/navbar_screens/nav_settings.dar
 import 'package:odc_flutter/presentation/styles/colours.dart';
 
 import 'business_logic/notes_cubit.dart';
+import 'business_logic/signup/signup_cubit.dart';
 import 'database/database/local/cache_helper.dart';
 import 'presentation/screens/splash/splash_screen.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (context) => NotesCubit()),
           BlocProvider(create: (context) => NewsCubit()),
+          BlocProvider(create: (context) => SignupCubit()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
