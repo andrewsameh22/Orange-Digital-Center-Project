@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-
-// class NewsCard {
-//   String title;
-//   String ImagePath;
-//   String body;
-//   NewsCard({
-//     required this.title,
-//     required this.ImagePath,
-//     required this.body,
-//   });
-// }
-
 import 'package:flutter/material.dart';
 
 import '../ResuableWidgets/copy_button.dart';
 import '../ResuableWidgets/custom_text.dart';
 import '../ResuableWidgets/share_button.dart';
 import '../presentation/styles/colours.dart';
+
+class LocalNewsCard {
+  String title;
+  String ImagePath;
+  String body;
+  LocalNewsCard({
+    required this.title,
+    required this.ImagePath,
+    required this.body,
+  });
+}
 
 //This card create for get news
 class NewsCard extends StatelessWidget {

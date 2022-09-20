@@ -35,7 +35,7 @@ class EditNotesScreen extends StatelessWidget {
               title: Text(
                 "Edit",
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 22,
                   fontWeight: FontWeight.w500,
                   color: Colors.black,
                 ),
@@ -44,8 +44,11 @@ class EditNotesScreen extends StatelessWidget {
                 onPressed: () {
                   return Navigator.pop(context);
                 },
-                icon: const Icon(Icons.arrow_back_ios_rounded,
-                    color: black, size: 30),
+                icon: const Icon(
+                  Icons.arrow_back_ios_rounded,
+                  color: black,
+                  size: 30,
+                ),
               ),
             ),
             body: Form(
@@ -101,24 +104,26 @@ class EditNotesScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(25.0),
                     child: defButton(
-                        onTap: () {
-                          if (notesCubit.keyEditNote.currentState!.validate()) {
-                            notesCubit.update(
-                              context,
-                              id,
-                              editTitle.text == "" ? title : editTitle.text,
-                              editDescription.text == ""
-                                  ? description
-                                  : editDescription.text,
-                              DateFormat(
-                                "hh:mm a        dd/MM/yyyy",
-                              ).format(DateTime.now()),
-                            );
-                            Navigator.pop(context);
-                          }
-                        },
-                        text: 'Edit',
-                        context: context),
+                      color: primaryColor,
+                      onTap: () {
+                        if (notesCubit.keyEditNote.currentState!.validate()) {
+                          notesCubit.update(
+                            context,
+                            id,
+                            editTitle.text == "" ? title : editTitle.text,
+                            editDescription.text == ""
+                                ? description
+                                : editDescription.text,
+                            DateFormat(
+                              "hh:mm a        dd/MM/yyyy",
+                            ).format(DateTime.now()),
+                          );
+                          Navigator.pop(context);
+                        }
+                      },
+                      text: 'Edit',
+                      context: context,
+                    ),
                   ),
                 ],
               ),

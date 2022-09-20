@@ -49,7 +49,9 @@ class DetailsOfNoteScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
+              SizedBox(
+                height: 10,
+              ),
               //Date
               Container(
                 margin: EdgeInsets.only(left: 30),

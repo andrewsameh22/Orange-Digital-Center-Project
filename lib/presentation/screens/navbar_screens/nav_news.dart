@@ -9,65 +9,40 @@ import '../../../models/news_model.dart';
 import '../../styles/colours.dart';
 
 class NewsScreen extends StatelessWidget {
-  // List<NewsCard> newsCards = [
-  //   NewsCard(
-  //     title: 'News 1',
-  //     ImagePath:
-  //         "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
-  //     body: 'testing',
-  //   ),
-  //   NewsCard(
-  //     title: 'News 2',
-  //     ImagePath:
-  //         "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
-  //     body: 'testing2',
-  //   ),
-  //   NewsCard(
-  //     title: 'News 3',
-  //     ImagePath:
-  //         "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
-  //     body: 'testing3',
-  //   ),
-  //   NewsCard(
-  //     title: 'News 4',
-  //     ImagePath:
-  //         "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
-  //     body: 'testing4',
-  //   ),
-  //   NewsCard(
-  //     title: 'News 5',
-  //     ImagePath:
-  //         "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
-  //     body: 'testing5',
-  //   ),
-  // ];
+  List<LocalNewsCard> localNewsCards = [
+    LocalNewsCard(
+      title: 'News 1',
+      ImagePath:
+          "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
+      body: 'testing',
+    ),
+    LocalNewsCard(
+      title: 'News 2',
+      ImagePath:
+          "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
+      body: 'testing2',
+    ),
+    LocalNewsCard(
+      title: 'News 3',
+      ImagePath:
+          "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
+      body: 'testing3',
+    ),
+    LocalNewsCard(
+      title: 'News 4',
+      ImagePath:
+          "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
+      body: 'testing4',
+    ),
+    LocalNewsCard(
+      title: 'News 5',
+      ImagePath:
+          "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg?w=2000",
+      body: 'testing5',
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //   backgroundColor: Colors.white,
-    //   appBar: AppBar(
-    //     title: Text(
-    //       'News',
-    //       style: TextStyle(
-    //         color: Colors.black,
-    //       ),
-    //     ),
-    //     backgroundColor: Colors.white,
-    //     centerTitle: true,
-    //     elevation: 0.0,
-    //   ),
-    //   body: Padding(
-    //     padding: const EdgeInsets.all(12.0),
-    //     child: ListView.separated(
-    //         itemBuilder: (context, index) => NewsScreenItem(
-    //               body: newsCards[index].body,
-    //               title: newsCards[index].title,
-    //               imagePath: newsCards[index].ImagePath,
-    //             ),
-    //         separatorBuilder: (context, index) => Divider(),
-    //         itemCount: 5),
-    //   ),
-    // );
     return BlocBuilder<NewsCubit, NewsState>(
       builder: (context, state) {
         NewsCubit myCubit = NewsCubit.get(context);
@@ -104,10 +79,21 @@ class NewsScreen extends StatelessWidget {
               );
             },
             fallback: (context) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: primaryColor,
-                ),
+              // return const Center(
+              //   child: CircularProgressIndicator(
+              //     color: primaryColor,
+              //   ),
+              // );
+              return Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: ListView.separated(
+                    itemBuilder: (context, index) => NewsScreenItem(
+                          body: localNewsCards[index].body,
+                          title: localNewsCards[index].title,
+                          imagePath: localNewsCards[index].ImagePath,
+                        ),
+                    separatorBuilder: (context, index) => Divider(),
+                    itemCount: 5),
               );
             },
           ),

@@ -70,39 +70,6 @@ Widget defaultButton({
       ),
     );
 
-Widget webdefaultButton({
-  required String text,
-  required onpressed,
-  required color,
-  required context,
-  textColor,
-}) =>
-    Container(
-      height: MediaQuery.of(context).size.height * 0.1,
-      width: MediaQuery.of(context).size.width * 0.2,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: color,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
-      ),
-      child: MaterialButton(
-        child: Text(
-          textAlign: TextAlign.center,
-          text,
-          style: TextStyle(
-            color: textColor ?? Colors.white,
-          ),
-        ),
-        onPressed: onpressed,
-      ),
-    );
 Widget defButton({
   required String text,
   required GestureTapCallback? onTap,
@@ -136,7 +103,7 @@ Widget defButton({
             text,
             style: const TextStyle(
               color: Colors.white,
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w700,
               fontSize: 22,
               // fontWeight: FontWeight.bold,
             ),

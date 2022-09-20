@@ -1,27 +1,21 @@
 import 'package:dio/dio.dart';
 import 'end_points.dart';
 
-
 //Dio Helper That's Connect and Talk to API.
-class DioHelper
-{
+class DioHelper {
   static late Dio dio;
 
   //Here The Initialize of Dio and Start Connect to API Using baseUrl.
-  static init()
-  {
+  static init() {
     dio = Dio(
       BaseOptions(
         //Here the URL of API.
         baseUrl: baseUrl,
 
-       // receiveDataWhenStatusError: true,
+        //   receiveDataWhenStatusError: true,
         //Here we Put The Headers Needed in The API.
-        headers:
-        {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Content-Length': 229,
-          'Host': 'cloudflare',
+        headers: {
+          'Content-Type': 'application/json',
           //'lang':'en'
         },
       ),
@@ -35,12 +29,8 @@ class DioHelper
     ProgressCallback? onReceiveProgress,
     String? token,
   }) async {
-
-
-    try
-    {
-      dio.options.headers =
-      {
+    try {
+      dio.options.headers = {
         'Authorization': 'Bearer ${token ?? ''}',
       };
       final Response response = await dio.get(
@@ -49,10 +39,7 @@ class DioHelper
         onReceiveProgress: onReceiveProgress,
       );
       return response;
-    }
-
-    catch (e)
-    {
+    } catch (e) {
       rethrow;
     }
   }
@@ -65,14 +52,9 @@ class DioHelper
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-
-    try
-    {
+    try {
       dio.options.headers = {
         'Authorization': 'Bearer ${token ?? ''}',
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': 229,
-        'Host': 'cloudflare',
       };
       final Response response = await dio.post(
         url,
@@ -81,13 +63,9 @@ class DioHelper
         onReceiveProgress: onReceiveProgress,
       );
       return response;
-    }
-
-    catch (e)
-    {
+    } catch (e) {
       rethrow;
     }
-
   }
 
   //This Function That's Used to Update Some Date based on URL(End Points) and Send what's you need to Update as Map.
@@ -99,10 +77,8 @@ class DioHelper
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    try
-    {
-      dio.options.headers =
-      {
+    try {
+      dio.options.headers = {
         'Authorization': 'Bearer ${token ?? ''}',
       };
       final Response response = await dio.put(
@@ -112,13 +88,9 @@ class DioHelper
         onReceiveProgress: onReceiveProgress,
       );
       return response;
-    }
-
-    catch (e)
-    {
+    } catch (e) {
       rethrow;
     }
-
   }
 
   //This Function That's Used to Update Some Date based on URL(End Points) and Send what's you need to Update as Map.
@@ -128,8 +100,7 @@ class DioHelper
     required String token,
     bool files = false,
   }) async {
-    dio.options.headers =
-    {
+    dio.options.headers = {
       'Authorization': 'Bearer $token',
       // 'Authorization': token ,
       'Content-Type': 'application/json',
@@ -147,10 +118,8 @@ class DioHelper
     String? token,
     //String lang = 'en',
   }) async {
-    try
-    {
-      dio.options.headers =
-      {
+    try {
+      dio.options.headers = {
         'Authorization': 'Bearer $token',
         // 'Authorization': token ,
         //'Content-Type': 'application/json',
@@ -160,11 +129,8 @@ class DioHelper
         data: data,
       );
       return response;
-    }
-
-    catch (e) {
+    } catch (e) {
       rethrow;
     }
-
   }
 }

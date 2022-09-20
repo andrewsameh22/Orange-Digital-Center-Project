@@ -42,14 +42,16 @@ class _NotesScreenState extends State<NotesScreen> {
           ),
           backgroundColor: Colors.white,
           appBar: AppBar(
+            centerTitle: true,
             title: Text(
               'Notes',
               style: TextStyle(
                 color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
               ),
             ),
             backgroundColor: Colors.white,
-            centerTitle: true,
             elevation: 0.0,
             leading: IconButton(
               icon: Icon(
@@ -75,10 +77,7 @@ class _NotesScreenState extends State<NotesScreen> {
                       textColor: Colors.black,
                     ));
                   } else {
-                    return ListView.separated(
-                      separatorBuilder: (BuildContext context, int index) {
-                        return SizedBox();
-                      },
+                    return ListView.builder(
                       itemCount: snapshot.data.length,
                       itemBuilder: (BuildContext context, int index) {
                         return Card(
@@ -87,56 +86,70 @@ class _NotesScreenState extends State<NotesScreen> {
                               borderRadius: BorderRadius.circular(10)),
 
                           //list of notes
-                          child: ListTile(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                  builder: (BuildContext context) {
-                                return DetailsOfNoteScreen(
-                                  title: snapshot.data[index].title,
-                                  date: snapshot.data[index].date,
-                                  description: snapshot.data[index].description,
-                                );
-                              }));
-                            },
-                            title: CustomText(
-                              text: "${snapshot.data[index].title}",
-                              fontSize: titleFont,
-                              weight: FontWeight.bold,
-                              textColor: black,
-                            ),
-                            subtitle: CustomText(
-                              text: "${snapshot.data[index].date}",
-                              fontSize: titleFont,
-                              weight: FontWeight.w400,
-                              textColor: black,
-                            ),
-                            trailing: Wrap(
-                              children: [
-                                //btn edit
-                                IconButton(
-                                  onPressed: () {
-                                    notesCubit.getOneData(
-                                        context,
-                                        snapshot.data[index].id,
-                                        snapshot.data[index].title,
-                                        snapshot.data[index].description,
-                                        snapshot.data[index].date);
-                                  },
-                                  icon: const Icon(Icons.edit),
-                                  iconSize: deleteSize,
-                                  color: primaryColor,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListTile(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: DetailsOfNoteScreen(
+                                      title: snapshot.data[index].title,
+                                      date: snapshot.data[index].date,
+                                      description:
+                                          snapshot.data[index].description,
+                                    ),
+                                  );
+                                }));
+                              },
+                              title: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CustomText(
+                                  text: "${snapshot.data[index].title}",
+                                  fontSize: 22,
+                                  weight: FontWeight.bold,
+                                  textColor: black,
                                 ),
+                              ),
+                              subtitle: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CustomText(
+                                  text: "${snapshot.data[index].date}",
+                                  fontSize: titleFont,
+                                  weight: FontWeight.w400,
+                                  textColor: black,
+                                ),
+                              ),
+                              trailing: Wrap(
+                                children: [
+                                  //btn edit
+                                  IconButton(
+                                    onPressed: () {
+                                      notesCubit.getOneData(
+                                          context,
+                                          snapshot.data[index].id,
+                                          snapshot.data[index].title,
+                                          snapshot.data[index].description,
+                                          snapshot.data[index].date);
+                                    },
+                                    icon: const Icon(Icons.edit),
+                                    iconSize: deleteSize,
+                                    color: primaryColor,
+                                  ),
 
-                                //btn delete
-                                IconButton(
-                                  onPressed: () {
-                                    notesCubit.delete(snapshot.data[index].id);
-                                  },
-                                  icon: const Icon(Icons.delete),
-                                  iconSize: deleteSize,
-                                  color: primaryColor,
-                                ),
-                              ],
+                                  //btn delete
+                                  IconButton(
+                                    onPressed: () {
+                                      notesCubit
+                                          .delete(snapshot.data[index].id);
+                                    },
+                                    icon: const Icon(Icons.delete),
+                                    iconSize: deleteSize,
+                                    color: primaryColor,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );
