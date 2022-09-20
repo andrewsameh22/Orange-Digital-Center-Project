@@ -48,6 +48,9 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   top_snackbar_flutter: ^2.1.1
   fluttertoast: ^8.0.9
+  toggle_list: ^0.2.1
+  simple_html_css: ^4.0.0
+
 
 dev_dependencies:
   flutter_test:
