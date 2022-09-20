@@ -65,7 +65,7 @@ class OurPartners extends StatelessWidget {
                         style: TextStyle(
                           color: primaryColor,
                           fontWeight: FontWeight.bold,
-                          fontSize: 36,
+                          fontSize: 30,
                         ),
                       ),
                       TextSpan(
@@ -73,7 +73,7 @@ class OurPartners extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
-                          fontSize: 36,
+                          fontSize: 30,
                         ),
                       ),
                     ],
